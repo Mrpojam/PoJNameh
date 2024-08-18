@@ -5,6 +5,8 @@ from .models import Article, Mail
 
 from django_ratelimit.decorators import ratelimit
 
+from services import send_email
+
 def like_dislike_article(request, article_id):
     if request.method == 'POST':
         article = Article.objects.get(pk=article_id)
@@ -35,6 +37,6 @@ def send_mail(request):
         
         mail = Mail(text=text)
         mail.save()
-
+        send_email(text=text)
         return JsonResponse({'message':'Mail Sent'})
     return redirect({'message':'error happenned'})
