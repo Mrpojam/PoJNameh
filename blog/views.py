@@ -3,6 +3,8 @@ from django.http import JsonResponse
 from django.core.paginator import Paginator
 from .models import Article, Mail
 
+from django_ratelimit.decorators import ratelimit
+
 def like_dislike_article(request, article_id):
     if request.method == 'POST':
         article = Article.objects.get(pk=article_id)
@@ -23,6 +25,7 @@ def article_details(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'index.html', {'page_obj': page_obj})
 
+@ratelimit(key='ip', rate='1/m', method='POST', block=True)
 def send_mail(request):
     if request.method == 'POST':
         text = request.POST.get("text")

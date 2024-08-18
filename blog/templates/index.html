@@ -1,55 +1,3 @@
-<!-- {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PojNameh</title>
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <div class="blog">
-        <h1 class="title" id="page-title">PojNameh</h1>
-        <div class="posts">
-            {% for article in page_obj %}
-                <div class="post">
-                    <h2 class="post-title" id="post-title">{{ article.title }}</h2>
-                    <p class="post-text" id="post-text">{{article.text}}</p>
-                    <p class="post-date">{{ article.date }}</p>
-                </div>
-            {% endfor %}
-        </div>
-        <div class="pagination">
-            {% if page_obj.has_previous %}
-                <a href="?page=1">First</a>
-                <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
-            {% endif %}
-            <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</span>
-            {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}">Next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-            {% endif %}
-        </div>
-    </div>
-    <script>
-        const text = document.getElementById('page-title').innerText;
-        const postTextElement = document.getElementById('page-title');
-        postTextElement.innerText = '';  // Clear the text initially
-        let index = 0;
-
-        function typeText() {
-            if (index < text.length) {
-                postTextElement.innerText += text[index];
-                index++;
-                setTimeout(typeText, 50);  // Adjust typing speed as needed
-            }
-        }
-
-        typeText();  // Start the typing animation
-    </script>
-</body>
-</html> -->
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -85,7 +33,7 @@
 
         <!-- Send Mail Form -->
         <div class="send-mail">
-            <h2>Send Mail</h2>
+            <h2>Talk to me</h2>
             <form id="mail-form" method="POST" action="{% url 'create_mail' %}">
                 {% csrf_token %}
                 <textarea name="text" rows="4" cols="50" placeholder="Enter your mail text here..." required></textarea><br>
