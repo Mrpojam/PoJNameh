@@ -1,0 +1,14 @@
+# Database files
+*.sqlite3
+
+*.sh
+
+# Environment variables
+.env
+env/
+
+
+# Ignore virtual environment folder
+env/
+venv/
+

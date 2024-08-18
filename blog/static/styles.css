@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: monospace; /* Linux terminal-like font */
+}
+
+.blog {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+}
+
+.posts {
+    margin-top: 20px;
+}
+
+.post {
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.post-title {
+    font-size: 20px;
+}
+
+.post-date {
+    font-size: 14px;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+}
